@@ -1,7 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import userService from "../services/userService";
-import { useEffect } from "react";
 
 function useUser(id) {
   const [user, setUser] = useState(null);
@@ -9,7 +7,7 @@ function useUser(id) {
   const [error, setError] = useState(null);
 
   const fetchUser = async () => {
-    if (id) {
+    if (!id) {
       setLoading(false);
       return;
     }

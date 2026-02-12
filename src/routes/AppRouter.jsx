@@ -6,6 +6,9 @@ import PrivateRoute from "./PrivateRoute";
 import ProductListPage from "../features/products/pages/ProductListPage";
 import ProductDetailPage from "../features/products/pages/ProductDetailPage";
 import ProductFormPage from "../features/products/pages/ProductFormPage";
+import UserListPage from "../features/users/pages/UserListPage";
+import UserDetailPage from "../features/users/pages/UserDetailPage";
+import UserFormPage from "../features/users/pages/UserFormPage";
 
 function AppRouter() {
   return (
@@ -55,6 +58,41 @@ function AppRouter() {
           element={
             <PrivateRoute>
               <ProductFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/users"
+          element={
+            <PrivateRoute>
+              <UserListPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/users/new"
+          element={
+            <PrivateRoute>
+              <UserFormPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/users/:id"
+          element={
+            <PrivateRoute>
+              <UserDetailPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/users/:id/edit"
+          element={
+            <PrivateRoute>
+              <UserFormPage />
             </PrivateRoute>
           }
         />

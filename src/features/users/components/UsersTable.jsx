@@ -40,7 +40,7 @@ function UsersTable({ users, onDelete }) {
             <th style={headerStyle}>Nombre</th>
             <th style={headerStyle}>Email</th>
             <th style={headerStyle}>Telefono</th>
-            <th style={headerStyle}>Área</th>
+            <th style={headerStyle}>Acciones</th>
           </tr>
         </thead>
 
@@ -50,7 +50,7 @@ function UsersTable({ users, onDelete }) {
             <tr key={id} style={{ borderBottom: "1px solid #dee2e6" }}>
               <td style={cellStyle}>{user.id}</td>
               <td style={cellStyle}>{user.name}</td>
-              <td style={cellStyle}>${user.email}</td>
+              <td style={cellStyle}>{user.email}</td>
               <td style={cellStyle}>{user.phone || 0}</td>
               <td style={cellStyle}>
                 {/* 🔘 BOTONES DE ACCIÓN */}

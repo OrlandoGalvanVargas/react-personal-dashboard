@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import userService from "../services/userService";
 
 function useUserForm(userID) {
-  const [saving, setSaving] = useState(null);
+  const [saving, setSaving] = useState(false);
   const [error, setError] = useState(null);
 
   const navigate = useNavigate();

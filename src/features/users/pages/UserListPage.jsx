@@ -1,16 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import useUsers from "../hooks/useUsers";
+import UsersTable from "../components/UsersTable";
 
 function UserListPage() {
-  const { users, loading, error, refetch, deleteUser } = useUsers();
+  const { users, loading, error, refetch, deleteUser, deleting } = useUsers();
   const navigate = useNavigate();
 
   if (loading) {
     return (
       <div style={centerStyle}>
-        <div>Cargando productos....</div>
+        <div>Cargando usuarios....</div>
       </div>
     );
+  }
+
+  if (deleting) {
+    return <div style={centerStyle}>Eliminando usuario....</div>;
   }
 
   if (error) {
@@ -29,9 +34,9 @@ function UserListPage() {
           <h1>Usuarios</h1>
         </div>
         <div style={emptyStateStyle}>
-          <p>No hay usuarios registrados</p>
+          <p>No hay usuario registrados</p>
           <button
-            onClick={() => navigate("/Users/new")}
+            onClick={() => navigate("/users/new")}
             style={primaryButtonStyle}
           >
             Crear Primer usuario
@@ -44,16 +49,16 @@ function UserListPage() {
   return (
     <div style={{ padding: "20px" }}>
       <div style={headerContainerStyle}>
-        <h1>Productos ({users?.length})</h1>
+        <h1>Usuarios ({users?.length})</h1>
         <button
-          onClick={() => navigate("/Users/new")}
+          onClick={() => navigate("/users/new")}
           style={primaryButtonStyle}
         >
-          + Nuevo Producto
+          + Nuevo Usuario
         </button>
       </div>
 
-      <ProductsTable products={users} onDelete={deleteUser} />
+      <UsersTable users={users} onDelete={deleteUser} />
     </div>
   );
 }

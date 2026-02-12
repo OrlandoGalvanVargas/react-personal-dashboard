@@ -6,6 +6,7 @@ function useUsers() {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [deleting, setDeleting] = useState(false); // 👈 Nuevo estado
 
   const fetchUsuarios = async () => {
     try {
@@ -13,7 +14,7 @@ function useUsers() {
       setError(null);
 
       const data = await userService.getAll();
-      setUsers(data.data);
+      setUsers(data.data || data);
     } catch (error) {
       setError(error?.message || "Error al obtener los usuarios");
       console.log(error);
@@ -24,7 +25,7 @@ function useUsers() {
 
   const deleteUser = async (id) => {
     try {
-      setLoading(true);
+      setDeleting(true);
       setError(null);
 
       await userService.delete(id);
@@ -34,7 +35,7 @@ function useUsers() {
       setError(error.message || "Error al eliminar el usuario");
       console.log(error);
     } finally {
-      setLoading(false);
+      setDeleting(false);
     }
   };
 
@@ -42,7 +43,14 @@ function useUsers() {
     fetchUsuarios();
   }, []);
 
-  return { users, loading, error, refetch: fetchUsuarios, deleteUser };
+  return {
+    users,
+    loading,
+    error,
+    refetch: fetchUsuarios,
+    deleteUser,
+    deleting,
+  };
 }
 
 export default useUsers;

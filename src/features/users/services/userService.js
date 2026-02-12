@@ -12,7 +12,7 @@ const userService = {
     return response;
   },
   create: async (userData) => {
-    const response = await api.create(ENDPOINT, userData);
+    const response = await api.post(ENDPOINT, userData);
     return response;
   },
   update: async (id, userDat) => {
