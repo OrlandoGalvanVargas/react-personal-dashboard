@@ -1,21 +1,18 @@
-// src/features/products/components/ProductTable.jsx
 import { useNavigate } from "react-router-dom";
 
-function ProductTable({ products, onDelete }) {
+function UsersTable({ users, onDelete }) {
   const navigate = useNavigate();
 
-  // 🗑️ MANEJAR ELIMINACIÓN
   const handleDelete = async (id, name) => {
-    // Confirmación
-    const confirmed = window.confirm(`¿Estás seguro de eliminar "${name}"?`);
+    const confirmed = window.confirm(`Estas seguro de eliminar ${name}?`);
 
     if (confirmed) {
       try {
         await onDelete(id);
-        alert("Producto eliminado correctamente");
-      } catch (err) {
-        alert("Error al eliminar el producto");
-        console.log(err);
+        alert("Usuario eliminado");
+      } catch (error) {
+        alert("No es posible eliminar el usuario");
+        console.log(error);
       }
     }
   };
@@ -41,37 +38,37 @@ function ProductTable({ products, onDelete }) {
           >
             <th style={headerStyle}>ID</th>
             <th style={headerStyle}>Nombre</th>
-            <th style={headerStyle}>Precio</th>
-            <th style={headerStyle}>Stock</th>
-            <th style={headerStyle}>Acciones</th>
+            <th style={headerStyle}>Email</th>
+            <th style={headerStyle}>Telefono</th>
+            <th style={headerStyle}>Área</th>
           </tr>
         </thead>
 
         {/* 📋 DATOS */}
         <tbody style={{ color: "#000" }}>
-          {products?.map((product, id) => (
+          {users?.map((user, id) => (
             <tr key={id} style={{ borderBottom: "1px solid #dee2e6" }}>
-              <td style={cellStyle}>{product.id}</td>
-              <td style={cellStyle}>{product.name}</td>
-              <td style={cellStyle}>${product.price}</td>
-              <td style={cellStyle}>{product.stock || 0}</td>
+              <td style={cellStyle}>{user.id}</td>
+              <td style={cellStyle}>{user.name}</td>
+              <td style={cellStyle}>${user.email}</td>
+              <td style={cellStyle}>{user.phone || 0}</td>
               <td style={cellStyle}>
                 {/* 🔘 BOTONES DE ACCIÓN */}
                 <div style={{ display: "flex", gap: "8px" }}>
                   <button
-                    onClick={() => navigate(`/products/${product.id}`)}
+                    onClick={() => navigate(`/users/${user.id}`)}
                     style={buttonStyle("#007bff")}
                   >
                     Ver
                   </button>
                   <button
-                    onClick={() => navigate(`/products/${product.id}/edit`)}
+                    onClick={() => navigate(`/users/${user.id}/edit`)}
                     style={buttonStyle("#28a745")}
                   >
                     Editar
                   </button>
                   <button
-                    onClick={() => handleDelete(product.id, product.name)}
+                    onClick={() => handleDelete(user.id, user.name)}
                     style={buttonStyle("#dc3545")}
                   >
                     Eliminar
@@ -86,7 +83,6 @@ function ProductTable({ products, onDelete }) {
   );
 }
 
-// 🎨 ESTILOS (puedes moverlos a CSS después)
 const headerStyle = {
   padding: "12px",
   textAlign: "left",
@@ -109,4 +105,4 @@ const buttonStyle = (color) => ({
   fontSize: "12px",
 });
 
-export default ProductTable;
+export default UsersTable;
