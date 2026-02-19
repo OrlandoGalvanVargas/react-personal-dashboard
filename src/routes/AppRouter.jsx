@@ -10,6 +10,9 @@ import UserListPage from "../features/users/pages/UserListPage";
 import UserDetailPage from "../features/users/pages/UserDetailPage";
 import UserFormPage from "../features/users/pages/UserFormPage";
 import DashboardLayout from "../components/layout/DashboardLayout";
+import OrdersListPage from "../features/orders/pages/OrdersListPage";
+import OrderFormPage from "../features/orders/pages/OrderFormPage";
+import OrderDetailPage from "../features/orders/pages/OrderDetailPage";
 
 function AppRouter() {
   return (
@@ -37,6 +40,11 @@ function AppRouter() {
           <Route path="/users/new" element={<UserFormPage />} />
           <Route path="/users/:id" element={<UserDetailPage />} />
           <Route path="/users/:id/edit" element={<UserFormPage />} />
+
+          <Route path="/orders" element={<OrdersListPage />} />
+          <Route path="/orders/new" element={<OrderFormPage />} />
+          <Route path="/orders/:id" element={<OrderDetailPage />} />
+          <Route path="/orders/:id/edit" element={<OrderFormPage />} />
         </Route>
         {/* Redirección por defecto: Si entran a "/" -> ir a /dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
