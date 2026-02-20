@@ -2,7 +2,7 @@ import axios from "axios";
 
 // 1. Crear instancia axios
 const api = axios.create({
-  baseURL: "https://mp0e2353b7cd8a27b7ec.free.beeceptor.com",
+  baseURL: "https://mp5150a5e85c577d27a3.free.beeceptor.com",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",

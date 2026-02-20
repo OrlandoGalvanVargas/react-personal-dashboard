@@ -1,16 +1,19 @@
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../../contexts/ToastContext";
 
 function UsersTable({ users, onDelete }) {
   const navigate = useNavigate();
-
+  const { success, error: showError } = useToast();
   const handleDelete = async (id, name) => {
     const confirmed = window.confirm(`Estas seguro de eliminar ${name}?`);
 
     if (confirmed) {
       try {
         await onDelete(id);
+        success("Usuario eliminado");
         alert("Usuario eliminado");
       } catch (error) {
+        showError("No es posible eliminar el usuario");
         alert("No es posible eliminar el usuario");
         console.log(error);
       }

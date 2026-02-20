@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import OrderStatusBadge from "./OrderStatusBadge";
+import { useToast } from "../../../contexts/ToastContext";
 
 function OrderTable({ orders, onDelete, onStatusChange }) {
   const navigate = useNavigate();
+  const { success, error: showError } = useToast();
 
   const handleDelete = async (id, orderId) => {
     const confirmed = window.confirm(`¿Eliminar orden #${orderId}?`);
@@ -10,9 +12,9 @@ function OrderTable({ orders, onDelete, onStatusChange }) {
     if (confirmed) {
       try {
         await onDelete(id);
-        alert("Orden eliminada");
+        success("Orden eliminada");
       } catch (error) {
-        alert("Error al eliminar la orden");
+        showError("Error al eliminar la orden");
         console.log(error);
       }
     }
