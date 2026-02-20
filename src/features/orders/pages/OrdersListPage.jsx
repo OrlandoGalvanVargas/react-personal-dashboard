@@ -63,28 +63,28 @@ function OrdersListPage() {
       <div style={statsContainerStyle}>
         <div style={statCardStyle("#fff3cd")}>
           <div style={{ fontSize: "24px", fontWeight: "bold" }}>
-            {orders.filter((o) => o.status === "pending".length)}
+            {orders?.filter((o) => o.status === "pending").length}
           </div>
           <div style={{ fontSize: "12px", color: "#666" }}>Pendientes</div>
         </div>
 
         <div style={statCardStyle("#d4edda")}>
           <div style={{ fontSize: "24px", fontWeight: "bold" }}>
-            {orders.filter((o) => o.status === "completed").length}
+            {orders?.filter((o) => o.status === "completed").length}
           </div>
           <div style={{ fontSize: "12px", color: "#666" }}>Completadas</div>
         </div>
 
         <div style={statCardStyle("#f8d7da")}>
           <div style={{ fontSize: "24px", fontWeight: "bold" }}>
-            {orders.filter((o) => o.status === "cancelled").length}
+            {orders?.filter((o) => o.status === "cancelled").length}
           </div>
           <div style={{ fontSize: "12px", color: "#666" }}>Canceladas</div>
         </div>
 
         <div style={statCardStyle("#d1ecf1")}>
           <div style={{ fontSize: "24px", fontWeight: "bold" }}>
-            ${orders.reduce((sum, o) => sum + o.total, 0).toFixed(2)}
+            ${orders?.reduce((sum, o) => sum + o.total, 0).toFixed(2)}
           </div>
           <div style={{ fontSize: "12px", color: "#666" }}>Total Ventas</div>
         </div>

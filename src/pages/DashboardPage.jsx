@@ -38,12 +38,13 @@ function DashboardPage() {
         </div>
 
         {/* CARD: PRÓXIMAMENTE */}
-        <div style={{ ...cardStyle, opacity: 0.5, cursor: "not-allowed" }}>
+        <div style={cardStyle} onClick={() => navigate("/orders")}>
           <div style={cardIconStyle}>📋</div>
           <h3>Órdenes</h3>
           <p style={{ color: "#666", fontSize: "14px", marginTop: "8px" }}>
-            Próximamente
+            Gestiona ordenes
           </p>
+          <button style={cardButtonStyle}>Ver ordenes</button>
         </div>
 
         <div style={{ ...cardStyle, opacity: 0.5, cursor: "not-allowed" }}>
@@ -70,6 +71,12 @@ function DashboardPage() {
             style={actionButtonStyle("#28a745")}
           >
             + Nuevo Usuario
+          </button>
+          <button
+            onClick={() => navigate("/orders/new")}
+            style={actionButtonStyle("#a75928")}
+          >
+            + Nueva Orden
           </button>
         </div>
       </div>
