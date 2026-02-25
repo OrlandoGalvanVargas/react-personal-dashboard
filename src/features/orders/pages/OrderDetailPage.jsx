@@ -82,7 +82,6 @@ function OrderDetailPage() {
           </div>
         </div>
 
-        {/* PRODUCTOS */}
         <div style={sectionStyle}>
           <h3 style={sectionTitleStyle}>
             Productos ({order.items?.length || 0})
@@ -105,7 +104,6 @@ function OrderDetailPage() {
             ))}
           </div>
 
-          {/* RESUMEN */}
           <div style={summaryStyle}>
             <div style={summaryRowStyle}>
               <span>Subtotal:</span>

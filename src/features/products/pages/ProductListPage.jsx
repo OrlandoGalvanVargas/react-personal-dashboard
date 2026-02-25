@@ -60,7 +60,6 @@ function ProductListPage() {
 
   return (
     <div style={{ padding: "20px" }}>
-      {/* 🏷️ HEADER */}
       <div style={headerContainerStyle}>
         <div>
           <h1>Productos ({products?.length})</h1>
@@ -79,7 +78,6 @@ function ProductListPage() {
         </button>
       </div>
 
-      {/* 🔍 BÚSQUEDA */}
       <div style={searchContainerStyle}>
         <input
           type="text"
@@ -95,7 +93,6 @@ function ProductListPage() {
         )}
       </div>
 
-      {/* 📊 TABLA */}
       {filteredProducts.length > 0 ? (
         <ProductTable products={filteredProducts} onDelete={deleteProduct} />
       ) : (
@@ -113,7 +110,6 @@ function ProductListPage() {
   );
 }
 
-// 🎨 ESTILOS (iguales que en UserListPage)
 const searchContainerStyle = {
   position: "relative",
   marginBottom: "20px",

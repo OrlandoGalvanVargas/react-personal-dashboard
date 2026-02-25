@@ -24,7 +24,6 @@ function LoginPage() {
       <h1>Iniciar Sesión</h1>
 
       <form onSubmit={handleSubmit}>
-        {/* 📧 EMAIL */}
         <div style={{ marginBottom: "15px" }}>
           <label htmlFor="email">Email:</label>
           <input
@@ -38,7 +37,6 @@ function LoginPage() {
           />
         </div>
 
-        {/* 🔒 PASSWORD */}
         <div style={{ marginBottom: "15px" }}>
           <label htmlFor="password">Contraseña:</label>
           <input
@@ -52,7 +50,6 @@ function LoginPage() {
           />
         </div>
 
-        {/* ❌ MOSTRAR ERROR SI EXISTE */}
         {error && (
           <div
             style={{
@@ -67,7 +64,6 @@ function LoginPage() {
           </div>
         )}
 
-        {/* 🔘 BOTÓN */}
         <button
           type="submit"
           disabled={loading}

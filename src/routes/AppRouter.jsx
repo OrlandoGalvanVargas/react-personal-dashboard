@@ -18,7 +18,6 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Ruta pública: Cualquiera puede entrar */}
         <Route path="/login" element={<LoginPage />} />
 
         <Route
@@ -28,7 +27,6 @@ function AppRouter() {
             </PrivateRoute>
           }
         >
-          {/* Ruta privada: Solo usuarios autenticados */}
           <Route path="/dashboard" element={<DashboardPage />} />
 
           <Route path="/products" element={<ProductListPage />} />
@@ -46,10 +44,8 @@ function AppRouter() {
           <Route path="/orders/:id" element={<OrderDetailPage />} />
           <Route path="/orders/:id/edit" element={<OrderFormPage />} />
         </Route>
-        {/* Redirección por defecto: Si entran a "/" -> ir a /dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
 
-        {/* 404: Ruta no encontrada */}
         <Route path="*" element={<div>Página no encontrada</div>} />
       </Routes>
     </BrowserRouter>

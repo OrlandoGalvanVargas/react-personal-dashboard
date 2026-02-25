@@ -89,7 +89,6 @@ function OrdersListPage() {
 
   return (
     <div style={{ padding: "20px" }}>
-      {/* 🏷️ HEADER */}
       <div style={headerContainerStyle}>
         <div>
           <h1>Órdenes ({orders.length})</h1>
@@ -107,9 +106,7 @@ function OrdersListPage() {
         </button>
       </div>
 
-      {/* 🎛️ CONTROLES DE FILTRADO */}
       <div style={filtersContainerStyle}>
-        {/* 🔍 BÚSQUEDA */}
         <div style={{ flex: 2, position: "relative" }}>
           <input
             type="text"
@@ -125,7 +122,6 @@ function OrdersListPage() {
           )}
         </div>
 
-        {/* 📊 FILTRO POR ESTADO */}
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
@@ -137,7 +133,6 @@ function OrdersListPage() {
           <option value="cancelled">Canceladas ({stats.cancelled})</option>
         </select>
 
-        {/* 🔢 ORDENAMIENTO */}
         <select
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
@@ -149,7 +144,6 @@ function OrdersListPage() {
           <option value="total-asc">Total: Menor a mayor</option>
         </select>
 
-        {/* 🧹 LIMPIAR FILTROS */}
         {(searchTerm || statusFilter !== "all" || sortBy !== "date-desc") && (
           <button
             onClick={() => {
@@ -164,7 +158,6 @@ function OrdersListPage() {
         )}
       </div>
 
-      {/* 📊 ESTADÍSTICAS */}
       <div style={statsContainerStyle}>
         <div style={statCardStyle("#fff3cd")}>
           <div style={{ fontSize: "24px", fontWeight: "bold" }}>
@@ -195,7 +188,6 @@ function OrdersListPage() {
         </div>
       </div>
 
-      {/* 📋 TABLA */}
       {filteredOrders.length > 0 ? (
         <OrderTable
           orders={filteredOrders}
@@ -220,7 +212,6 @@ function OrdersListPage() {
   );
 }
 
-// 🎨 ESTILOS
 const filtersContainerStyle = {
   display: "flex",
   gap: "12px",

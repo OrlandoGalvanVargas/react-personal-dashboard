@@ -6,7 +6,7 @@ function useUsers() {
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [deleting, setDeleting] = useState(false); // 👈 Nuevo estado
+  const [deleting, setDeleting] = useState(false);
 
   const fetchUsuarios = async () => {
     try {

@@ -1,17 +1,13 @@
-//1. Configuación Base
 const BASE_URL = "https://api.backend.com";
 
-//2. Función Helper para hacer peticiones
 async function apiRequest(endpoint, options = {}) {
-  // Obtener el token del localstorage (si existe)
   const token = localStorage.getItem("token");
 
   const headers = {
     "Content-Type": "application/json",
-    ...options.headers, // permite agregar header extra si es necesario
+    ...options.headers,
   };
 
-  // Si hay token agregarlo a todas las peticiones
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;
   }
@@ -21,7 +17,6 @@ async function apiRequest(endpoint, options = {}) {
     headers,
   });
 
-  // Manejo de errores centralizado
   if (!response.ok) {
     if (response.status === 401) {
       localStorage.removeItem("token");

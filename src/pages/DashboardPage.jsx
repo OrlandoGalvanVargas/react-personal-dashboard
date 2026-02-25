@@ -7,7 +7,6 @@ function DashboardPage() {
 
   return (
     <div>
-      {/* 👋 BIENVENIDA */}
       <div style={welcomeStyle}>
         <h1>¡Bienvenido, {user?.name}!</h1>
         <p style={{ color: "#666", marginTop: "8px" }}>
@@ -15,9 +14,7 @@ function DashboardPage() {
         </p>
       </div>
 
-      {/* 📊 CARDS DE RESUMEN */}
       <div style={cardsContainerStyle}>
-        {/* CARD: PRODUCTOS */}
         <div style={cardStyle} onClick={() => navigate("/products")}>
           <div style={cardIconStyle}>📦</div>
           <h3>Productos</h3>
@@ -27,7 +24,6 @@ function DashboardPage() {
           <button style={cardButtonStyle}>Ver productos →</button>
         </div>
 
-        {/* CARD: USUARIOS */}
         <div style={cardStyle} onClick={() => navigate("/users")}>
           <div style={cardIconStyle}>👥</div>
           <h3>Usuarios</h3>
@@ -37,7 +33,6 @@ function DashboardPage() {
           <button style={cardButtonStyle}>Ver usuarios →</button>
         </div>
 
-        {/* CARD: PRÓXIMAMENTE */}
         <div style={cardStyle} onClick={() => navigate("/orders")}>
           <div style={cardIconStyle}>📋</div>
           <h3>Órdenes</h3>
@@ -56,7 +51,6 @@ function DashboardPage() {
         </div>
       </div>
 
-      {/* 📌 ACCIONES RÁPIDAS */}
       <div style={{ marginTop: "40px" }}>
         <h2 style={{ marginBottom: "16px" }}>Acciones rápidas</h2>
         <div style={{ display: "flex", gap: "12px" }}>
@@ -84,7 +78,6 @@ function DashboardPage() {
   );
 }
 
-// 🎨 ESTILOS
 const welcomeStyle = {
   marginBottom: "32px",
   paddingBottom: "20px",

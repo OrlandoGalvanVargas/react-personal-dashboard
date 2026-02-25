@@ -1,11 +1,9 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../store/AuthContext"; // Lo crearemos en el paso 5
+import { useAuth } from "../store/AuthContext";
 
 function PrivateRoute({ children }) {
-  // Obtener estado de autenticación
   const { isAuthenticated, loading } = useAuth();
 
-  // ⏳ SI ESTÁ VERIFICANDO SESIÓN → MOSTRAR LOADING
   if (loading) {
     return (
       <div
@@ -21,12 +19,10 @@ function PrivateRoute({ children }) {
     );
   }
 
-  // 🔐 SI NO ESTÁ AUTENTICADO → REDIRIGIR A LOGIN
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
-  // ✅ SI ESTÁ AUTENTICADO → MOSTRAR CONTENIDO
   return children;
 }
 

@@ -117,7 +117,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
 
   return (
     <form onSubmit={handleSubmit} style={{ maxWidth: "800px" }}>
-      {/* 👤 SELECT USUARIO */}
       <div style={fieldStyle}>
         <label htmlFor="userId" style={labelStyle}>
           Cliente *
@@ -141,7 +140,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
         </select>
       </div>
 
-      {/* 📊 SELECT ESTADO */}
       <div style={fieldStyle}>
         <label htmlFor="status" style={labelStyle}>
           Estado
@@ -161,7 +159,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
         </select>
       </div>
 
-      {/* 📦 AGREGAR PRODUCTOS */}
       <div style={fieldStyle}>
         <label htmlFor="products" style={labelStyle}>
           Agregar Productos *
@@ -181,7 +178,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
         </select>
       </div>
 
-      {/* 📋 ITEMS AGREGADOS */}
       {formData.items.length > 0 && (
         <div style={{ ...fieldStyle, marginTop: "24px" }}>
           <label style={labelStyle}>Productos en la orden:</label>
@@ -228,7 +224,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
             ))}
           </div>
 
-          {/* 💰 TOTAL */}
           <div style={totalStyle}>
             <strong>Total:</strong>
             <strong style={{ fontSize: "20px" }}>
@@ -238,7 +233,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
         </div>
       )}
 
-      {/* 🔘 BOTONES */}
       <div style={{ display: "flex", gap: "12px", marginTop: "24px" }}>
         <button
           type="submit"
@@ -263,7 +257,6 @@ function OrderForm({ initialData = null, onSubmit, onCancel, isSubmitting }) {
   );
 }
 
-// 🎨 ESTILOS
 const fieldStyle = { marginBottom: "20px" };
 
 const labelStyle = {

@@ -97,7 +97,6 @@ function UserListPage() {
         )}
       </div>
 
-      {/* 📊 TABLA CON USUARIOS FILTRADOS */}
       {filteredUsers.length > 0 ? (
         <UsersTable users={filteredUsers} onDelete={deleteUser} />
       ) : (
